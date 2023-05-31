@@ -1,18 +1,18 @@
-job('Java Maven App DSL 2') {
+job('Java Maven App DSL 2 - File Script') {
     description('Java Maven App con DSL para el curso de Jenkins')
     scm {
-        git('https://github.com/macloujulian/simple-java-maven-app.git', 'master') { node ->
-            node / gitConfigName('macloujulian')
-            node / gitConfigEmail('macloujulian@gmail.com')
+        git('https://github.com/carnol1989/simple-java-maven-app.git', 'master') { node ->
+            node / gitConfigName('carnol1989')
+            node / gitConfigEmail('carnole1989@outlook.com')
         }
     }
     steps {
         maven {
-          mavenInstallation('mavenjenkins')
+          mavenInstallation('udemy-jenkins')
           goals('-B -DskipTests clean package')
         }
         maven {
-          mavenInstallation('mavenjenkins')
+          mavenInstallation('udemy-jenkins')
           goals('test')
         }
         shell('''
